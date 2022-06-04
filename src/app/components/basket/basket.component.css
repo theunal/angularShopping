@@ -1,0 +1,13 @@
+
+
+
+ thead tr th,
+ tbody tr td , h2{
+     text-align: center
+ }
+
+ tbody tr td button {
+    margin: 5px
+ }
+
+

@@ -1,0 +1,22 @@
+
+
+
+<div *ngIf="getAuth()" class="container mt-4" >
+    <div class="row">
+        <div class="col-md-12">
+            <app-product></app-product>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="getAuth() == false" class="container mt-4">
+    <div class="row" >
+        <div class="col-md-8">
+            <app-product></app-product>
+        </div>
+        <div class="col-md-4">
+            <app-basket></app-basket>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,15 @@
+.gradient-custom {
+    background: #6a11cb;
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+  }
+
+  
+form .ng-valid {
+  border-left: 5px solid #42A948; /* green */
+  
+}
+
+form .ng-invalid {
+  border-left: 5px solid #a94442; /* red */
+}

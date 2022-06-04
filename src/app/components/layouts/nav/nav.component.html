@@ -1,0 +1,78 @@
+<nav *ngIf="loginPage" class="navbar navbar-expand-lg bg-light">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Shopping</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">
+            <i class="fa-solid fa-house-user"></i>
+            Ana Sayfa</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/add" *ngIf="getAuth()">
+            <i class="fa-regular fa-square-plus"></i>
+            Yeni Ürün
+          </a>
+        </li>
+
+        <li *ngIf="getAuth() == false" class="nav-item">
+          <a class="nav-link" routerLink="/orders">
+            <i class="fa-solid fa-list"></i>
+            Siparişler
+          </a>
+        </li>
+
+      </ul>
+
+
+
+      <div class="dropdown" style="margin-left: 100px;">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+          *ngIf="getAuth() == false" aria-expanded="false">
+          Sepet
+        </a>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li>
+            <a *ngFor="let basket of baskets" href="#" class="list-group-item dropdown-item"
+              style="width: 12rem; color: red;">
+              {{basket.product.name}}
+              <label class="badge bg-info" style="float: right;">{{basket.quantity}}</label>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" routerLink="/orders">Siparişlerim</a></li>
+        </ul>
+      </div>
+
+      <div style="float: right;">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <button *ngIf="!getAuth()" class="btn btn-secondary" routerLink="/login">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i>
+              login</button>
+          </li>
+
+          <li class="nav-item">
+            <button *ngIf="getAuth()" class="btn btn-secondary" (click)="logout()">
+              <i class="fa-solid fa-power-off"></i>
+              logout
+            </button>
+          </li>
+        </ul>
+      </div>
+
+
+
+    </div>
+  </div>
+</nav>

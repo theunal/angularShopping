@@ -1,0 +1,130 @@
+<app-spinner></app-spinner>
+
+
+<div class="row mx-auto mb-5">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="mx-auto">
+                <input class="form-control text-center" type="text" placeholder="Ürün Arayın" [(ngModel)]=filterText>
+            </div>
+        </div>
+    </div>
+
+    <app-spinner></app-spinner>
+
+    <!-- <div *ngIf="isAuth" class="row justify-content-start">
+        <div *ngFor="let product of products | filterPipe : filterText" class="card mt-3 "
+            style="width: 16rem; margin-left: 16px;">
+
+            <img src={{product.imageUrl}} height="150">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">
+                    {{product.name}} - <p class="badge bg-danger">{{product.price |currency: '':'':'1.2'}} ₺</p>
+                </h5>
+                <p *ngIf="product.inventoryQuantity > 0" class="text-center">
+                    <span class="badge bg-primary">Stok : {{product.inventoryQuantity}}</span>
+                </p>
+                <p *ngIf="product.inventoryQuantity == 0" class="text-center">
+                    <span class="badge bg-danger">Stokta Yok</span>
+                </p>
+
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="number" min="1" value="1" class="form-control" id="q-{{product.name}}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <button *ngIf="!isAuth" class="btn btn-success" [ngClass]="" (click)="addBasket(product)"
+                            title="Sepete Ekle">
+                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        </button>
+                        <button *ngIf="isAuth" class="btn btn-warning" title="Ürünü Güncelle"
+                            routerLink="/update/{{product.codeGuid}}">
+                            <i class="fa-solid fa-pen-fancy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div *ngIf="isAuth" class="row">
+        <div *ngFor="let product of products | filterPipe : filterText" class="card mt-3"
+            style="width: 15rem; margin-left: 12px;">
+
+            <img src={{product.imageUrl}} height="150">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">
+                    {{product.name}} - <p class="badge bg-danger">{{product.price |currency:'':'':'1.2'}} ₺</p>
+                </h5>
+                <p *ngIf="product.inventoryQuantity > 0" class="text-center">
+                    <span class="badge bg-primary">Stok : {{product.inventoryQuantity}}</span>
+                </p>
+                <p *ngIf="product.inventoryQuantity == 0" class="text-center">
+                    <span class="badge bg-danger">Stokta Yok</span>
+                </p>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="number" min="1" value="1" class="form-control" id="q-{{product.name}}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <button *ngIf="!isAuth" class="btn btn-success" (click)="addBasket(product)"
+                            title="Sepete Ekle">
+                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        </button>
+                        <button *ngIf="isAuth" class="btn btn-warning" title="Ürünü Güncelle"
+                            routerLink="/update/{{product.codeGuid}}">
+                            <i class="fa-solid fa-pen-fancy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!isAuth" class="row justify-content-start">
+        <div *ngFor="let product of products | filterPipe : filterText" class="card mt-3 "
+            style="width: 16rem; margin-left: 16px;">
+
+            <img class="card-img-top" src={{product.imageUrl}} height="150">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">
+                    {{product.name}} - <p class="badge bg-danger">{{product.price |currency: '':'':'1.2'}} ₺</p>
+                </h5>
+                <p *ngIf="product.inventoryQuantity > 0" class="text-center">
+                    <span class="badge bg-primary">Stok : {{product.inventoryQuantity}}</span>
+                </p>
+                <p *ngIf="product.inventoryQuantity == 0" class="text-center">
+                    <span class="badge bg-danger">Stokta Yok</span>
+                </p>
+
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <!-- <div class="col-md-6">
+                        <input type="number" min="1" value="1" class="form-control" id="q-{{product.name}}" required>
+                    </div> -->
+                    <div class="col-md-6">
+                        <button *ngIf="!isAuth" [class]="addBasketButtonClass(product)" (click)="addBasket(product)"
+                            title="Sepete Ekle">
+                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        </button>
+                        <button *ngIf="isAuth" class="btn btn-warning" title="Ürünü Güncelle"
+                            routerLink="/update/{{product.codeGuid}}">
+                            <i class="fa-solid fa-pen-fancy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>

@@ -1,0 +1,59 @@
+<app-spinner></app-spinner>
+
+<div class='container'>
+    <p class='display-1 text-center'>Yeni Ürün Ekle</p>
+    <div class='row'>
+
+        <div class="col-md-3">
+            <img  class="img-responsive rounded mt-4" [src]="imageUrl" width="430">
+        </div>
+
+        <div class="col-md-6 mt-5">
+            <form [formGroup]="addForm" (ngSubmit)="productAdd()">
+                <div class='form-group mb-3 w-50 mx-auto'>
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <label class="form-label">Ürün Adı</label>
+                        </div>
+                    </div>
+                    <input type='text' class='form-control' formControlName="name" placeholder='Ürün adı giriniz' />
+                </div>
+
+                <div class='form-group mb-3 w-50 mx-auto'>
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <label class="form-label">Ürün Resmi</label>
+                        </div>
+                    </div>
+                    <input type='text' class='form-control' [(ngModel)]="imageUrl" formControlName="imageUrl" placeholder='Ürün Resmi' />
+                </div>
+
+                <div class='form-group mb-3 w-50 mx-auto'>
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <label class="form-label">Ürün Stok Adedi</label>
+                        </div>
+                    </div>
+                    <input type='number' class='form-control' formControlName="inventoryQuantity" placeholder='Stok adedi giriniz' />
+                </div>
+
+                <div class='form-group mb-3 w-50 mx-auto'>
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <label class="form-label">Ürün Fiyatı</label>
+                        </div>
+                    </div>
+                    <input type='text' class='form-control' formControlName="price" placeholder='Birim fiyat giriniz' />
+                </div>
+
+                <div class="row text-center mt-4">
+                    <div class="col-md-12">
+                        <button class='btn btn-success' type="submit">Kaydet</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+</div>

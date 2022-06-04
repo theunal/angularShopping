@@ -1,0 +1,62 @@
+<app-spinner></app-spinner>
+
+<h2 *ngIf="getAuth() == false">Sepetiniz</h2>
+
+<table *ngIf="getAuth() == false && totalPrice()" class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Adet</th>
+            <th scope="col">Tutar</th>
+            <th scope="col">İşlemler</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let basket of basketList">
+            <td scope="row" style="color: red;">{{basket.product.name}}</td>
+            <td>{{basket.quantity}}</td>
+            <td>{{ (basket.quantity * basket.product.price) | currency: '' : '' : '1.2' }} ₺</td>
+            <td>
+                <button class="btn btn-sm btn-danger" (confirm)="delete(basket)" [swal]="deleteBasket">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
+                <button class="btn btn-sm btn-success" (click)="increase(basket)">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <button class="btn btn-sm btn-warning" (click)="reduce(basket)">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td scope="row" colspan="1"> </td>
+            <th style="text-align: center;">Toplam:</th>
+            <th style="text-align: center;" scope="row">{{totalPrice() | currency: '' : '' : '1.2'}} ₺</th>
+            <td></td>
+        </tr>
+    </tfoot>
+
+</table>
+
+
+<p *ngIf="totalPrice() == 0" class="alert alert-danger rounded-pill w-75 text-center mx-auto mt-3" role="alert">Sepetinizde hiç ürün yok!</p>
+
+
+
+
+<button *ngIf="total != 0 && getAuth() == false" class="btn btn-primary mt-1" data-bs-toggle="modal"
+    data-bs-target="#paymentModal">
+    <i class="fa fa-credit-card" style="margin-right: 5px; margin-bottom: 5px;" aria-hidden="true"></i> Ödemeye Geç
+</button>
+
+<app-payment></app-payment>
+
+
+<swal type="question" #deleteBasket title="Sil" text="Ürünü silmek istiyor musunuz ?" [showCancelButton]="true"
+    confirmButtonText="Evet" cancelButtonText="Hayır" confirmButtonColor="#ff0000" cancelButtonColor="#00ff00"
+    [focusCancel]="true">
+</swal>
