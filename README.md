@@ -1,8 +1,11 @@
-## [Proje Linki](https://theunal.github.io/angularShopping/)'ne tıklayarak veya https://theunal.github.io/angularShopping/ adresine giderek projenin canlı halini görebilirsiniz. Api bana ait değildir. 
+## [Proje Linki](https://theunal.github.io/angularShopping/)'ne tıklayarak projenin canlı halini görebilirsiniz. Api bana ait değildir. 
 
 ## Test girişi için
 kullanıcı email: test@test.com
 şifre: test
+
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
 
