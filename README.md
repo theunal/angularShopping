@@ -1,4 +1,4 @@
-# [Shopping](https://theunal.github.io/angularShopping/)
+# [Proje Linki](https://theunal.github.io/angularShopping/)'ne tıklayarak veya https://theunal.github.io/angularShopping/ adresine giderek projenin canlı halini görebilirsiniz. Api bana ait değildir.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
 
